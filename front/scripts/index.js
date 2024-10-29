@@ -1,34 +1,41 @@
-console.log(tempData);
+
+
+$.get("https://students-api.up.railway.app/movies", function(data) {
+    console.log(data);
+    // Llama a la función para renderizar las películas del array tempData
+renderMovies(data);
+});
 // Seleccion de donde se muestran las películas
 const movieContainer = document.querySelector('main');
 
 // Función que renderiza los datos de cada película
 function renderMovies(data) {
+    // Vaciar el contenedor antes de agregar nuevas películas
+    movieContainer.innerHTML = ''; // Limpia el contenedor para evitar duplicados
+
     data.forEach((movie) => {
-    // Crea un contenedor para cada película
-    const movieElement = document.createElement('section');
-    movieElement.classList.add('detalle-pelicula');
+        // Crea un contenedor para cada tarjeta
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('col-12', 'col-md-6', 'col-lg-3'); // Clases de Bootstrap para el diseño responsivo
 
-    // Aqui se genera el HTML para cada película
-    movieElement.innerHTML = `
-    <div class="imagen-pelicula">
-        <img src="${movie.poster}" alt="${movie.title}">
-    </div>
-    <div class="info-pelicula">
-        <h2>${movie.title}</h2>
-        <p><strong>Año:</strong> ${movie.year}</p>
-        <p><strong>Género:</strong> ${movie.genre.join(', ')}</p>
-        <p><strong>Duración:</strong> ${movie.duration}</p>
-        <p><strong>Director:</strong> ${movie.director}</p>
-        <p><strong>Valoración:</strong> ⭐${movie.rate} / 10</p>
-    </div>
-    `;
+        // Aquí se genera el HTML para cada tarjeta de película
+        cardElement.innerHTML = `
+            <div class="card">
+                <img src="${movie.poster}" class="card-img-top" alt="${movie.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${movie.title}</h5>
+                    <p class="card-text"><strong>Año:</strong> ${movie.year}</p>
+                    <p class="card-text"><strong>Género:</strong> ${movie.genre.join(', ')}</p>
+                    <p class="card-text"><strong>Duración:</strong> ${movie.duration} min</p>
+                    <p class="card-text"><strong>Director:</strong> ${movie.director}</p>
+                    <p class="card-text"><strong>Valoración:</strong> ⭐${movie.rate} / 10</p>
+                </div>
+            </div>
+        `;
 
-    // Agrega la película a la sección principal
-    movieContainer.appendChild(movieElement);
-
+        // Agrega la tarjeta al contenedor principal
+        movieContainer.appendChild(cardElement);
     });
 }
 
-// Llama a la función para renderizar las películas del array tempData
-renderMovies(tempData);
+

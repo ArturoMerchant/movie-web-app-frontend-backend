@@ -1,0 +1,134 @@
+/* Estilos para el Header */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .h3 a {
+    color: #ff0000; /* Rojo similar al logo de YouTube */
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+header form {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 20px;
+}
+
+header form .form-control {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    height: 38px;
+}
+
+header form .btn-outline-secondary {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    height: 38px;
+    background-color: #f8f8f8;
+    color: #606060;
+}
+
+/* Espacio debajo del header fijo para que no cubra el contenido */
+body {
+    padding-top: 70px;
+}
+
+/* Barra de navegación secundaria */
+nav.bg-light {
+    background-color: #f9f9f9;
+    border-top: 1px solid #eaeaea;
+    padding: 8px 0;
+}
+
+nav.bg-light .nav-link {
+    color: #606060;
+    font-size: 14px;
+}
+
+/* Estilos para la cuadrícula de tarjetas (similar a YouTube) */
+/* Estilos para las tarjetas (similar a YouTube) */
+main .row {
+    margin-top: 20px;
+}
+
+/* Estilos de las tarjetas */
+main .card {
+    border: none; /* Sin borde */
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Esconde el desbordamiento */
+}
+
+main .card img {
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
+    border-bottom: 1px solid #ddd; /* Línea debajo de la imagen */
+}
+
+main .card-title {
+    font-size: 16px; /* Tamaño de fuente del título */
+    font-weight: bold; /* Negrita */
+    margin-top: 10px; /* Margen superior */
+    color: #222; /* Color del texto */
+    overflow: hidden; /* Esconde el desbordamiento */
+    white-space: nowrap; /* Una sola línea */
+    text-overflow: ellipsis; /* "..." si es demasiado largo */
+}
+
+main .card-text {
+    font-size: 14px; /* Tamaño de fuente para la descripción */
+    color: #555; /* Color del texto */
+    margin-top: 5px; /* Margen superior */
+}
+
+/* Efecto hover para las tarjetas */
+main .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más fuerte al pasar el cursor */
+    transition: box-shadow 0.3s; /* Transición suave */
+}
+
+
+/* Footer estilo YouTube */
+footer {
+    background-color: #f1f1f1;
+    color: #606060;
+    padding: 20px 0;
+    font-size: 13px;
+}
+
+footer .nav-link {
+    color: #606060;
+    font-size: 13px;
+}
+
+footer .nav-link:hover {
+    color: #333;
+}
+
+body {
+    background-color: #f5f5f5; /* Fondo gris claro */
+}
+
+/* Estilos para el contenedor principal */
+main {
+    background-color: #211e1e85; /* Fondo blanco para el área principal */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px; /* Espaciado interno */
+    margin-top: 20px; /* Margen superior */
+}
+
