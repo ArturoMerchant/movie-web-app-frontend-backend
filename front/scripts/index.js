@@ -1,6 +1,4 @@
-
-
-$.get("https://students-api.up.railway.app/movies", function(data) {
+$.get("http://localhost:3000/", function(data) {
     console.log(data);
     // Llama a la función para renderizar las películas del array tempData
 renderMovies(data);
@@ -13,10 +11,14 @@ function renderMovies(data) {
     // Vaciar el contenedor antes de agregar nuevas películas
     movieContainer.innerHTML = ''; // Limpia el contenedor para evitar duplicados
 
+    // Crea un contenedor para las tarjetas
+    const cardContainer = document.createElement('div');
+    cardContainer.classList.add('row'); // Agrega la clase 'row' de Bootstrap para alinear las tarjetas
+
     data.forEach((movie) => {
         // Crea un contenedor para cada tarjeta
         const cardElement = document.createElement('div');
-        cardElement.classList.add('col-12', 'col-md-6', 'col-lg-3'); // Clases de Bootstrap para el diseño responsivo
+        cardElement.classList.add('col-12', 'col-md-6', 'col-lg-4', 'mb-4'); // Clases de Bootstrap para el diseño responsivo
 
         // Aquí se genera el HTML para cada tarjeta de película
         cardElement.innerHTML = `
@@ -33,9 +35,13 @@ function renderMovies(data) {
             </div>
         `;
 
-        // Agrega la tarjeta al contenedor principal
-        movieContainer.appendChild(cardElement);
+        // Agrega la tarjeta al contenedor de tarjetas
+        cardContainer.appendChild(cardElement);
     });
+
+    // Agrega el contenedor de tarjetas al contenedor principal
+    movieContainer.appendChild(cardContainer);
 }
+
 
 
