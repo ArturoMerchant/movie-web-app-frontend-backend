@@ -1,8 +1,10 @@
 const {Router} = require("express");
-const {testController} = require("../controllers/index")
+const {getData, addData} = require("../controllers/index")
 
 const router = Router();
 
-router.get('/', testController)
+router.get('/', getData)
+
+router.post('/', addData); 
 
 module.exports = router;

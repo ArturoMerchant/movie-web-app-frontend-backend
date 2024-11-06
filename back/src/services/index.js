@@ -11,6 +11,13 @@ const movieService = {
         return movies;
     },
 
+    createMovie : async function (movieData) {
+
+        const movie = new Movie(movieData); 
+        await movie.save(); 
+        return movie; 
+    },
+
 };
 
 module.exports = movieService;

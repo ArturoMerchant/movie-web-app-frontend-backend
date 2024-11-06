@@ -17,29 +17,57 @@ function handleFormSubmit(event) {
     const director = document.getElementById('director').value.trim();
     const duration = document.getElementById('duration').value.trim();
     const poster = document.getElementById('poster').value.trim();
-    const selectedGenre = document.querySelector('input[name="genre"]:checked');
+    const selectedGenres = document.querySelectorAll('input[name="genre"]:checked');
     const rate = parseFloat(document.getElementById('rate').value);
 
-    // Mensaje de error si algún campo está vacío
-    if (!title || !year || !director || !duration || !poster || !selectedGenre || isNaN(rate)) {
+    const genres = Array.from(selectedGenres).map((genre) => genre.value);
+
+    
+    if (!title || !year || !director || !duration || !poster || !selectedGenres || isNaN(rate)) {
         alert('Por favor, completa todos los campos antes de enviar el formulario.');
         return;
     }
 
-    // Crear el objeto JSON con los datos de la película
+    // Crea el objeto JSON con los datos de la película
     const movieData = {
         title: title,
         year: parseInt(year),
         director: director,
         duration: duration,
-        genre: selectedGenre.value,
+        genre: genres,
         rate: rate,
         poster: poster
     };
 
-    // Muestra el JSON en la consola (o envíalo al servidor aquí)
-    console.log(movieData);
+    // se envia el json al servidor
+    fetch('http://localhost:3000', {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(movieData) 
+    })
+    .then(response => {
+        if (response.ok) {
+            
+            return response.json(); 
+        } else {
+            
+            throw new Error('Error al enviar la película al servidor');
+        }
+    })
+    .then(data => {
+        
+        alert('Película añadida con éxito');
+        console.log(data); 
+    })
+    .catch(error => {
+        
+        alert('Ocurrió un error al enviar los datos');
+        console.error(error);
+    });
+
 }
 
-// Asignar la función al evento de submit del formulario
+
 document.getElementById('movieForm').addEventListener('submit', handleFormSubmit);
