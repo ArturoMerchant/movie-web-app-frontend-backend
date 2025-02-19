@@ -1,5 +1,8 @@
 
-const Movie = require("../models/movie");
+const path = require('path');
+const Movie = require(path.join(__dirname, '..', 'models', 'movie'));
+
+
 
 
 
