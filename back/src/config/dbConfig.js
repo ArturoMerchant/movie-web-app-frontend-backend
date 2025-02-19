@@ -3,8 +3,7 @@ const mongoose = require("mongoose");
 const dbConfig = async () => {
 
     await  mongoose.connect(
-        "mongodb+srv://Halortiz:5yyZSPMIOTp3Btc7@merchanflix.vzvu6.mongodb.net/Merchanflix?retryWrites=true&w=majority&appName=merchanflix"
-    )
+"mongodb://mongo:RDhceCRZSRvfNgTmgBCsfCaMAIBkmjvp@mongodb.railway.internal:27017")
 }
 
 module.exports = dbConfig;
