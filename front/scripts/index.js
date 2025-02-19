@@ -1,4 +1,4 @@
-$.get("http://localhost:3000/", function(data) {
+$.get("http://backend-production-c0a3.up.railway.app", function(data) {
     console.log(data);
     // Llama a la función para renderizar las películas del array tempData
 renderMovies(data);
