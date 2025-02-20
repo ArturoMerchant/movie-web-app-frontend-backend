@@ -40,7 +40,7 @@ function handleFormSubmit(event) {
     };
 
     // se envia el json al servidor
-    fetch('http://backend-production-c0a3.up.railway.app', {
+    fetch('https://backend-production-c0a3.up.railway.app', {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json' 
